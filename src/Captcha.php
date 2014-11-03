@@ -23,9 +23,9 @@ class Captcha {
     /**
      * All alphabets available
      *
-     * @var AlphabetInterface
+     * @var array
      */
-    private $alphabet;
+    private $alphabet = [];
 
     /**
      * @var array
