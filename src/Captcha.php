@@ -7,22 +7,16 @@ use FedericoBiccheddu\AsciiCaptcha\Alphabet\AlphabetInterface;
 class Captcha {
 
     /**
-     * Captcha length
-     *
      * @var int
      */
     private $length = 5;
 
     /**
-     * The generate string to display
-     *
      * @var string
      */
     private $string;
 
     /**
-     * All alphabets available
-     *
      * @var array
      */
     private $alphabet = [];
@@ -46,7 +40,7 @@ class Captcha {
     }
 
     /**
-     * @param boolean $html5
+     * @param boolean $html5 Use self-close break or not
      * @return string
      */
     public function toHtml($html5 = true)
@@ -71,8 +65,6 @@ class Captcha {
     }
 
     /**
-     * Get the generated string to display
-     *
      * @return string
      */
     public function getString()
@@ -81,8 +73,6 @@ class Captcha {
     }
 
     /**
-     * If you want, you can override the string
-     *
      * @param string $string
      */
     public function setString($string)
@@ -91,8 +81,6 @@ class Captcha {
     }
 
     /**
-     * Change the alphabet on the fly
-     *
      * @param AlphabetInterface $alphabet
      *
      * @return void
@@ -103,8 +91,6 @@ class Captcha {
     }
 
     /**
-     * Get alphabet array
-     *
      * @return array
      */
     public function getAlphabet()
@@ -113,8 +99,6 @@ class Captcha {
     }
 
     /**
-     * Generate a random string to display by the same length as defined
-     *
      * @return void
      */
     public function generateString()

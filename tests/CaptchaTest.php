@@ -12,11 +12,11 @@ class CaptchaTest extends TestCase {
 
     public function testAlphabetWasSet()
     {
-        $alphabet = $this->getAlphabetStub(['foo' => 'bar']);
+        $alphabet = $this->getAlphabetStub(['a' => 'b']);
 
         $captcha = new Captcha($alphabet);
 
-        assertSame(['foo' => 'bar'], $captcha->getAlphabet());
+        assertSame(['a' => 'b'], $captcha->getAlphabet());
     }
 
     public function testLengthWasSetInConstructor()
@@ -30,7 +30,7 @@ class CaptchaTest extends TestCase {
 
     public function testStringHasTheCorrectLength()
     {
-        $alphabet = $this->getAlphabetStub(['foo' => 'bar']);
+        $alphabet = $this->getAlphabetStub(['a' => 'b']);
 
         $captcha = new Captcha($alphabet, 1);
 
@@ -57,12 +57,12 @@ class CaptchaTest extends TestCase {
         $captcha = new Captcha($alphabet);
 
         $newAlphabet = $this->getAlphabetStub([
-            'bar'   => 'foo'
+            'b'   => 'a'
         ]);
 
         $captcha->setAlphabet($newAlphabet);
 
-        assertSame(['bar' => 'foo'], $captcha->getAlphabet());
+        assertSame(['b' => 'a'], $captcha->getAlphabet());
     }
 
     public function testThrowExceptionIfStringWasNotGenerated()
@@ -74,6 +74,25 @@ class CaptchaTest extends TestCase {
         $captcha = new Captcha($alphabet, 1);
 
         $captcha->toHtml();
+    }
+
+    public function testStringWasReplacedWhenGenerateStringMethodWasRecalled()
+    {
+        $alphabet = $this->getAlphabetStub(['a' => 'b']);
+
+        $captcha = new Captcha($alphabet, 1);
+
+        $captcha->generateString();
+
+        $oldString = $captcha->getString();
+
+        $captcha->setAlphabet($this->getAlphabetStub(['c' => 'd']));
+
+        $captcha->generateString();
+
+        $newString = $captcha->getString();
+
+        assertNotEquals($oldString, $newString);
     }
 
     public function testToHtml()
