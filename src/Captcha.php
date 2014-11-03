@@ -119,7 +119,7 @@ class Captcha {
      */
     public function generateString()
     {
-        $string = substr(str_shuffle(implode(array_keys($this->getAlphabet()))), 0, $this->getLength());
+        $string = substr(str_shuffle(implode('', array_keys($this->getAlphabet()))), 0, $this->getLength());
 
         $this->setString($string);
     }
