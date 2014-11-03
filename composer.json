@@ -1,6 +1,6 @@
 {
     "name": "federicobiccheddu/ascii-captcha",
-    "description": "ASCII Captcha permit you to provide a simple ASCII captcha instead of images.",
+    "description": "A very original ASCII Captcha.",
     "authors": [
         {
             "name": "Federico Biccheddu",
