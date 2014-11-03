@@ -73,10 +73,10 @@ class CaptchaTest extends TestCase {
 
         $captcha = new Captcha($alphabet, 1);
 
-        $captcha->toHTML();
+        $captcha->toHtml();
     }
 
-    public function testToHTML()
+    public function testToHtml()
     {
         $alphabet = $this->getAlphabetStub([
             'A'	=> [
@@ -89,7 +89,7 @@ class CaptchaTest extends TestCase {
 
         $captcha->generateString();
 
-        assertSame('&nbsp;&nbsp;*&nbsp;<br />&nbsp;&nbsp;*&nbsp;', $captcha->toHTML());
+        assertSame('&nbsp;&nbsp;*&nbsp;<br />&nbsp;&nbsp;*&nbsp;', $captcha->toHtml());
     }
 
     public function testToHTML5SettedToFalse()
@@ -105,7 +105,7 @@ class CaptchaTest extends TestCase {
 
         $captcha->generateString();
 
-        assertSame('&nbsp;&nbsp;*&nbsp;<br>&nbsp;&nbsp;*&nbsp;', $captcha->toHTML(false));
+        assertSame('&nbsp;&nbsp;*&nbsp;<br>&nbsp;&nbsp;*&nbsp;', $captcha->toHtml(false));
     }
 
     private function getAlphabetStub(array $characters = [])

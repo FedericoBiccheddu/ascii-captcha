@@ -36,7 +36,7 @@ class Captcha {
      * @param \FedericoBiccheddu\AsciiCaptcha\Alphabet\AlphabetInterface $alphabet
      * @param int $length
      */
-    function __construct(AlphabetInterface $alphabet, $length = null)
+    public function __construct(AlphabetInterface $alphabet, $length = null)
     {
         $this->setAlphabet($alphabet);
 
@@ -49,7 +49,7 @@ class Captcha {
      * @param boolean $html5
      * @return string
      */
-    public function toHTML($html5 = true)
+    public function toHtml($html5 = true)
     {
         return str_replace('.', '&nbsp;', implode($html5 ? '<br />' : '<br>', $this->getGrid()));
     }
@@ -153,7 +153,7 @@ class Captcha {
                 if (!isset($this->grid[$r])) {
                     $this->grid[$r] = '.' . $char[$r];
                 } else {
-                    $this->grid[$r] .= '.' . $char[$r];
+                    $this->grid[$r].='.' . $char[$r];
                 }
             }
         }
