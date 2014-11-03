@@ -151,9 +151,9 @@ class Captcha {
 
             for ($r = 0, $s = sizeof($char); $r < $s; ++$r) {
                 if (!isset($this->grid[$r])) {
-                    $this->grid[$r] = '.' . $char[$r];
+                    $this->grid[$r] = '.'.$char[$r];
                 } else {
-                    $this->grid[$r].='.' . $char[$r];
+                    $this->grid[$r] .= '.'.$char[$r];
                 }
             }
         }
